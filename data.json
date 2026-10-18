@@ -4,13 +4,23 @@
       "5. Klasse": {
         "Hochrechnung": "hochrechnung.txt"
       }
-    }
+    },
+	"Englisch": {
+	  "Algemein": {
+		"Vokabeln" : "Vokabeln.txt"
+	  }
+	}
   },
   "themen": {
     "Mathe": {
       "5. Klasse": {
         "Hochrechnung": "Hochrechnung.json"
       }
-    }
+    },
+	"Englisch": {
+	  "Vokabeln": {
+		"Uebersetze in Deutsch 1" : "Vokabeln1.json"
+	  }
+	}
   }
 }

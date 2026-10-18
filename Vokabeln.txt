@@ -1,0 +1,7 @@
+How         -  Wie
+Hello       -  Hallo
+stone       -  Stein
+stick       -  Stock
+car         -  Auto
+(to) drive  -  fahren
+(to) draw   -  malen

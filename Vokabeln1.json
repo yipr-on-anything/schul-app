@@ -1,0 +1,31 @@
+{
+  "questions": [
+    {
+      "question": "Car",
+      "answers": [
+        "Auto",
+        "Stein",
+        "Brot"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "No",
+      "answers": [
+        "Ja",
+        "Nominativ",
+        "Nein"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Bus",
+      "answers": [
+        "Heft",
+        "Stift",
+        "Bus"
+      ],
+      "correct": 2
+    }
+  ]
+}
