@@ -1,0 +1,16 @@
+{
+  "topics": {
+    "Mathe": {
+      "5. Klasse": {
+        "Hochrechnung": "hochrechnung.txt"
+      }
+    }
+  },
+  "themen": {
+    "Mathe": {
+      "5. Klasse": {
+        "Hochrechnung": "Hochrechnung.json"
+      }
+    }
+  }
+}

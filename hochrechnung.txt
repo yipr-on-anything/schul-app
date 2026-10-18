@@ -1,0 +1,5 @@
+Hochrechnung ist einfach, wie hier
+
+2³ = 2*2*2    =   2*2*... 3 mal!   = 8
+
+3^4 = 3*3*3*3  4 mal! 

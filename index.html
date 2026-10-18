@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+// 12 random codes
+const data = {
+  "codes": [
+    "A9F3K2","Z71QX8","M4T9P1","QW8E2D",
+    "B3L7H9","X2C9V5","R8N1J4","T6Y3U0",
+    "P5S2K7","H9D4A3","W1Q8Z6","C7M2B9"
+  ]
+};
+
+// C7M2B9    -   developer
+// W1Q8Z6    -   Tester
+// H9D4A3    -   user
+let target = "Home.html"; // redirect target
+</script>
+
+<input id="codeInput" placeholder="Code eingeben">
+<button onclick="checkCode()">Weiter</button>
+
+<script>
+function checkCode() {
+  let entered = document.getElementById("codeInput").value.trim();
+
+  if (data.codes.includes(entered)) {
+    location.href = target; // redirect
+  } else {
+    alert("Falscher Code!");
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "questions": [
+    {
+      "question": "Was ist 2 hoch 3?",
+      "answers": [
+        "6",
+        "4",
+        "8"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Was ist 5 hoch 1?",
+      "answers": [
+        "5",
+        "1",
+        "0"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Was ist 3 hoch 3?",
+      "answers": [
+        "27",
+        "29",
+        "18"
+      ],
+      "correct": 0
+    }
+  ]
+}
