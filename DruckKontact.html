@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Druckdienst - Kontakt</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], textarea, select {
+            width: 95%;
+            padding: 8px;
+            border: 1px solid #999999;
+        }
+        textarea {
+            height: 100px;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        #status-message {
+            margin-top: 15px;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Die ID id="my-form" ist wichtig für das JavaScript unten -->
+    <form id="my-form" action="https://formspree.io" method="POST">
+        
+        <div class="form-group">
+            <label for="name">Ihr Name:</label>
+            <input type="text" id="name" name="Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Ihre E-Mail-Adresse:</label>
+            <input type="email" id="email" name="_replyto" required>
+        </div>
+
+        <div class="form-group">
+            <label for="typ">Was möchten Sie drucken?</label>
+            <select id="typ" name="Druck-Typ">
+                <option value="Text">Normaler Text</option>
+                <option value="Bild">Bilder / Fotos</option>
+                <option value="QR-Code">QR-Code</option>
+                <option value="Barcode">Barcode</option>
+                <option value="Anderes">Etwas anderes</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nachricht">Inhalt / Beschreibung des Drucks:</label>
+            <textarea id="nachricht" name="Druck-Inhalt" required></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="Neuer Druckauftrag!">
+
+        <div class="form-group">
+            <button type="submit" id="submit-btn" class="btn-submit">Druckauftrag absenden</button>
+        </div>
+
+        <!-- Hier wird die Erfolgsmeldung angezeigt -->
+        <div id="status-message"></div>
+
+    </form>
+    
+    <p style="font-size: 11px; color: #777; text-align: center;">
+        Alternativ senden Sie direkt eine E-Mail an: noahkanal2024@gmail.com
+    </p>
+</div>
+
+<script type="text/javascript">
+    var form = document.getElementById("my-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault(); // Verhindert, dass der Browser die Seite verlässt
+      var status = document.getElementById("status-message");
+      var button = document.getElementById("submit-btn");
+      var data = new FormData(event.target);
+      
+      button.disabled = true;
+      button.innerHTML = "Wird gesendet...";
+
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Vielen Dank! Ihr Druckauftrag wurde erfolgreich gesendet.";
+          status.style.backgroundColor = "#d4edda";
+          status.style.color = "#155724";
+          status.style.display = "block";
+          button.innerHTML = "Erfolgreich gesendet!";
+          button.style.backgroundColor = "#28a745";
+          form.reset(); // Leert das Formular für den nächsten Auftrag
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+            } else {
+              status.innerHTML = "Hoppla! Es gab ein Problem beim Absenden.";
+            }
+          })
+          status.style.backgroundColor = "#f8d7da";
+          status.style.color = "#721c24";
+          status.style.display = "block";
+          button.disabled = false;
+          button.innerHTML = "Erneut versuchen";
+        }
+      }).catch(error => {
+        status.innerHTML = "Hoppla! Es gab ein Verbindungsproblem.";
+        status.style.backgroundColor = "#f8d7da";
+        status.style.color = "#721c24";
+        status.style.display = "block";
+        button.disabled = false;
+        button.innerHTML = "Erneut versuchen";
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+</script>
+
+</body>
+</html>
